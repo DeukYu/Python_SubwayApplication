@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import mimetypes
-import main
+import mysmtplib
 from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 
@@ -9,17 +9,8 @@ host = "smtp.gmail.com" # Gmail STMP 서버 주소.
 port = "587"
 htmlFileName = "logo.html"
 
-class Gmail:
-    def __init__(self):
-        self.EmailWindow = main.Tk()
-        self.window.geometry("800x600+500+200")
-        host = "smtp.gmail.com"  # Gmail STMP 서버 주소.
-        port = "587"
-        htmlFileName = "logo.html"
-
-
-senderAddr = "ldy8070@gmail.com"     # 보내는 사람 email 주소.
-recipientAddr = "ldy8070@naver.com"   # 받는 사람 email 주소.
+senderAddr = "보내는사람"     # 보내는 사람 email 주소.
+recipientAddr = "받을 사람"   # 받는 사람 email 주소.
 
 msg = MIMEBase("multipart", "alternative")
 msg['Subject'] = "Test email in Python 3.0"
@@ -40,6 +31,6 @@ s = mysmtplib.MySMTP(host,port)
 s.ehlo()
 s.starttls()
 s.ehlo()
-s.login("이메일","비번")
+s.login("gmail아이디","gmail비번")
 s.sendmail(senderAddr , [recipientAddr], msg.as_string())
 s.close()
