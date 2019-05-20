@@ -8,3 +8,13 @@ def FindStation(stationName):
         data = json.loads(url.read().decode('utf-8'))
         print(data)
         return data
+
+def FindRoute(start, end):
+    base_url = 'https://api.odsay.com/v1/api/subwayPath?lang=1&CID=1000&SID=201&EID=222&Sopt=1&'
+    path = urllib.parse.quote('apiKey=kVDgXCUs3Kdt7zL9KhbKog')
+    with urllib.request.urlopen(base_url + path) as url:
+        data = json.loads(url.read().decode('utf-8'))
+        print(data)
+        return data
+
+FindRoute(1, 1)

@@ -3,10 +3,10 @@ from jsonParsing import FindStation
 import folium
 
 class tkSubway:
-    def MapView(self, x, y, Info):
-        map_osm = folium.Map(location=[x, y], zoom_start=13)
-        folium.Marker([x, y], popup=Info).add_to(map_osm)
-        map_osm.save('osm.html')
+#    def MapView(self, x, y, Info):
+#        map_osm = folium.Map(location=[x, y], zoom_start=13)
+#        folium.Marker([x, y], popup=Info).add_to(map_osm)
+#        map_osm.save('osm.html')
     def FindStation(self):
         self.frame4.destroy()
         self.frame4 = Frame(self.frame2, bd=2)
@@ -28,9 +28,9 @@ class tkSubway:
         yValue += 30
         Label(self.frame4, text="전화번호 : " + stationInfoDict['stationList'][0]['telno']).place(x=10, y=yValue)
         yValue += 30
-        Button(self.frame4, text="지도보기", command=lambda : self.MapView(stationInfoDict['stationList'][0]['subwayXcnts'],
-                                                                       stationInfoDict['stationList'][0]['subwayYcnts'],
-                                                                       stationInfoDict['stationList'][0]['statnNmEng'])).place(x=10, y=yValue)
+#        Button(self.frame4, text="지도보기", command=lambda : self.MapView(stationInfoDict['stationList'][0]['subwayXcnts'],
+#                                                                       stationInfoDict['stationList'][0]['subwayYcnts'],
+#                                                                       stationInfoDict['stationList'][0]['statnNmEng'])).place(x=10, y=yValue)
     def check(self):
         #print(self.RadioVariety.get())
         self.frame2.destroy()
