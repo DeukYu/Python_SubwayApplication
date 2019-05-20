@@ -1,9 +1,8 @@
 from tkinter import *
+import tkinter.messagebox
 from jsonParsing import FindStation
 import mimetypes
-import mysmtplib
-from email.mime.base import MIMEBase
-from email.mime.text import MIMEText
+
 
 host = "smtp.gmail.com"  # Gmail STMP 서버 주소.
 port = "587"
@@ -11,17 +10,32 @@ port = "587"
 import folium
 
 class tkSubway:
-    global host, port
 #    def MapView(self, x, y, Info):
 #        map_osm = folium.Map(location=[x, y], zoom_start=13)
 #        folium.Marker([x, y], popup=Info).add_to(map_osm)
 #        map_osm.save('osm.html')
     def SendEmail(self):
-        Sender = self.Sender.get()
-        msg = MIMEBase("multipart", "alternative")
-        msg['Subject'] = self.Content
-        msg['From'] = Sender
-        msg['To'] = "ldy8070@naver.com"
+        global host, port
+        html = ""
+        title = str(self.Subject.get())
+        senderAddr = str(self.senderAddr.get())
+        recipientAddr = "ldy8070@naver.com"
+        passwd = str(self.senderPw.get())
+        html = str(self.MsgText.get())
+
+        import mysmtplib
+        from email.mime.multipart import MIMEMultipart
+        from email.mime.text import MIMEText
+
+        msg = MIMEMultipart('alternative')
+
+        msg['Subject'] = title
+        msg['From'] = senderAddr
+        msg['To'] = recipientAddr
+
+        bookPart = MIMEText(html, 'html', _charset='UTF-8')
+
+        msg.attach(bookPart)
 
         # 메일을 발송한다.
         s = mysmtplib.MySMTP(host, port)
@@ -29,17 +43,31 @@ class tkSubway:
         s.ehlo()
         s.starttls()
         s.ehlo()
-        s.login("ldy8070@gmail.com", "deukyu1874!@")
-        s.sendmail(Sender, ["ldy8070@naver.com"], msg.as_string())
+        s.login(senderAddr, passwd)
+        s.sendmail(senderAddr, [recipientAddr], msg.as_string())
         s.close()
+
+        tkinter.messagebox.showinfo("Gmail보내기", "성공적으로 보냈습니다.")
         pass
-    def Email(self):
+    def sendMain(self):
         self.EmailFrame = Frame(self.frame2, bd=2)
         self.EmailFrame.pack(side="left", fill="both", expand=True)
-        Label(self.EmailFrame, text="보내는 사람 email: ").pack()
-        self.Sender = Entry(self.EmailFrame).pack()
-        Label(self.EmailFrame, text="문의사항").pack()
-        self.Content = Entry(self.EmailFrame).pack()
+
+        Label(self.EmailFrame, text="Gmail ID: ").pack()
+        self.senderAddr = Entry(self.EmailFrame)
+        self.senderAddr.pack()
+
+        Label(self.EmailFrame, text="Gmail PW: ").pack()
+        self.senderPw = Entry(self.EmailFrame)
+        self.senderPw.pack()
+
+        Label(self.EmailFrame, text="제목").pack()
+        self.Subject = Entry(self.EmailFrame)
+        self.Subject.pack()
+
+        Label(self.EmailFrame, text="내용").pack()
+        self.MsgText = Entry(self.EmailFrame)
+        self.MsgText.pack()
         Button(self.EmailFrame, text="보내기", command=self.SendEmail).pack()
 
 
@@ -90,7 +118,7 @@ class tkSubway:
         if (self.RadioVariety.get() == 5):      #분실물 검색
             pass
         if (self.RadioVariety.get() == 6):      #G-mail
-            self.Email()
+            self.sendMain()
             pass
 
     def __init__(self):
