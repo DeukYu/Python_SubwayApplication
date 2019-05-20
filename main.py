@@ -21,7 +21,8 @@ class tkSubway:
         senderAddr = str(self.senderAddr.get())
         recipientAddr = "ldy8070@naver.com"
         passwd = str(self.senderPw.get())
-        html = str(self.MsgText.get())
+        html = str(self.MsgText.get(1.0, tkinter.END))
+        print(html)
 
         import mysmtplib
         from email.mime.multipart import MIMEMultipart
@@ -48,27 +49,33 @@ class tkSubway:
         s.close()
 
         tkinter.messagebox.showinfo("Gmail보내기", "성공적으로 보냈습니다.")
-        pass
+        self.senderAddr.delete(0, self.senderAddr.index(END))
+        self.senderPw.delete(0, self.senderPw.index(END))
+        self.Subject.delete(0, self.Subject.index(END))
+        self.MsgText.delete(1.0, tkinter.END)
+
+
+
     def sendMain(self):
         self.EmailFrame = Frame(self.frame2, bd=2)
         self.EmailFrame.pack(side="left", fill="both", expand=True)
 
-        Label(self.EmailFrame, text="Gmail ID: ").pack()
-        self.senderAddr = Entry(self.EmailFrame)
-        self.senderAddr.pack()
+        Label(self.EmailFrame, text="Gmail ID").place(x=10, y=10)
+        self.senderAddr = Entry(self.EmailFrame, width=40)
+        self.senderAddr.place(x=75, y=10)
 
-        Label(self.EmailFrame, text="Gmail PW: ").pack()
-        self.senderPw = Entry(self.EmailFrame)
-        self.senderPw.pack()
+        Label(self.EmailFrame, text="Gmail PW").place(x=10, y=40)
+        self.senderPw = Entry(self.EmailFrame, width=40)
+        self.senderPw.place(x=75, y=40)
 
-        Label(self.EmailFrame, text="제목").pack()
-        self.Subject = Entry(self.EmailFrame)
-        self.Subject.pack()
+        Label(self.EmailFrame, text="Title").place(x=10, y=70)
+        self.Subject = Entry(self.EmailFrame, width=40)
+        self.Subject.place(x=75, y=70)
 
-        Label(self.EmailFrame, text="내용").pack()
-        self.MsgText = Entry(self.EmailFrame)
-        self.MsgText.pack()
-        Button(self.EmailFrame, text="보내기", command=self.SendEmail).pack()
+        Label(self.EmailFrame, text="내용").place(x=10, y=100)
+        self.MsgText = Text(self.EmailFrame, width=55)
+        self.MsgText.place(x=75, y=100)
+        Button(self.EmailFrame, text="SEND", command=self.SendEmail, width=11, height=5).place(x=375,y=7)
 
 
     def FindStation(self):
