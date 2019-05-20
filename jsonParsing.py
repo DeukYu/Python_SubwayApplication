@@ -16,5 +16,3 @@ def FindRoute(start, end):
         data = json.loads(url.read().decode('utf-8'))
         print(data)
         return data
-
-FindRoute(1, 1)

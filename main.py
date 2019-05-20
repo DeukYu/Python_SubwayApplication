@@ -53,10 +53,12 @@ class tkSubway:
             pass
         if (self.RadioVariety.get() == 5):      #분실물 검색
             pass
+        if (self.RadioVariety.get() == 6):      #G-mail
+            pass
 
     def __init__(self):
         self.window = Tk()
-        self.window.geometry("800x600+500+200")
+        self.window.geometry("850x600+500+200")
         #window.resizable(False, False)
         frame1 = Frame(self.window, bd=2, relief="solid")
         frame1.pack(side="top", fill="both", expand=False)
@@ -65,7 +67,7 @@ class tkSubway:
         self.StationNameEntry = Entry(self.frame2)
         Title = PhotoImage(file="source\\Title.png")
         SubTitle = []
-        for i in range(5):
+        for i in range(6):
             SubTitle.append(PhotoImage(file="source\\Subtitle_0" + str(i + 1) + ".png"))
         self.Subway = PhotoImage(file="source\\Subway.png")
         Label(frame1, image=Title).pack(side=LEFT)
@@ -81,12 +83,15 @@ class tkSubway:
             Radiobutton(frame1, image=SubTitle[3], value=4, variable=self.RadioVariety, indicatoron=0, command=self.check))
         self.radio.append(
             Radiobutton(frame1, image=SubTitle[4], value=5, variable=self.RadioVariety, indicatoron=0, command=self.check))
+        self.radio.append(
+            Radiobutton(frame1, image=SubTitle[5], value=6, variable=self.RadioVariety, indicatoron=0, command=self.check))
 
         self.radio[0].pack(side=LEFT)
         self.radio[1].pack(side=LEFT)
         self.radio[2].pack(side=LEFT)
         self.radio[3].pack(side=LEFT)
         self.radio[4].pack(side=LEFT)
+        self.radio[5].pack(side=LEFT)
 
 
         self.window.mainloop()
