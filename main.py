@@ -1,6 +1,6 @@
 from tkinter import *
 import tkinter.messagebox
-from jsonParsing import FindStation, FindStationFirstLast
+from jsonParsing import FindStation, FindStationFirstLast, FindStationUseRate
 import mimetypes
 
 
@@ -28,9 +28,6 @@ class tkSubway:
             Label(toplevel, text=firstlastDict['timeTableList'][i]['holidayTranHour']).place(x=350, y=yValue)
             yValue += 20
 
-
-
-        #Label(text=)
     def SendEmail(self):
         global host, port
         html = ""
@@ -117,6 +114,7 @@ class tkSubway:
         Label(self.frame4, text="전화번호 : " + stationInfoDict['stationList'][0]['telno']).place(x=10, y=yValue)
         yValue += 30
         Button(self.frame4, text="첫차 막차 정보", command=lambda : self.FirstLastView(stationName)).place(x=10, y=yValue)
+        FindStationUseRate(stationName)
     def check(self):
         #print(self.RadioVariety.get())
         self.frame2.destroy()

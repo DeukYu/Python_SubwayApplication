@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec495f83-79fb-4492-9fde-d623ace22037" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/stdafx.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jsonParsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/jsonParsing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
@@ -14,16 +15,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+            <state relative-caret-position="342">
+              <caret line="117" column="20" lean-forward="true" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <element signature="e#417#1643#0" />
-                <element signature="e#1679#2543#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stdafx.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="24" column="52" lean-forward="true" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -40,7 +48,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gmail.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
+            <state relative-caret-position="608">
               <caret line="35" column="9" selection-start-line="7" selection-end-line="35" selection-end-column="9" />
               <folding>
                 <element signature="e#24#40#0" expanded="true" />
@@ -49,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jsonParsing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+            <state relative-caret-position="411">
+              <caret line="23" column="53" lean-forward="true" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -84,15 +92,16 @@
         <option value="$PROJECT_DIR$/SubwayImage.py" />
         <option value="$PROJECT_DIR$/xmlParsing.py" />
         <option value="$PROJECT_DIR$/gmail.py" />
-        <option value="$PROJECT_DIR$/jsonParsing.py" />
         <option value="$PROJECT_DIR$/FirstLast.py" />
+        <option value="$PROJECT_DIR$/stdafx.py" />
+        <option value="$PROJECT_DIR$/jsonParsing.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="280" />
-    <option name="y" value="93" />
+    <option name="x" value="655" />
+    <option name="y" value="23" />
     <option name="width" value="1121" />
     <option name="height" value="899" />
   </component>
@@ -101,7 +110,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -113,6 +121,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -266,10 +275,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="280" y="93" width="1121" height="899" extended-state="0" />
+    <frame x="655" y="23" width="1121" height="899" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16493873" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16776626" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -314,6 +323,7 @@
     <entry file="file://E:/Json_parsing_ex/tkinterEx.py" />
     <entry file="file://E:/Json_parsing_ex/parsing.py" />
     <entry file="file://C:/Python37/Lib/tkinter/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/FirstLast.py" />
     <entry file="file://$PROJECT_DIR$/mysmtplib.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -323,7 +333,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gmail.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
+        <state relative-caret-position="608">
           <caret line="35" column="9" selection-start-line="7" selection-end-line="35" selection-end-column="9" />
           <folding>
             <element signature="e#24#40#0" expanded="true" />
@@ -331,29 +341,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jsonParsing.py">
+    <entry file="file://$PROJECT_DIR$/stdafx.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FirstLast.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        <state relative-caret-position="456">
+          <caret line="24" column="52" lean-forward="true" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+        <state relative-caret-position="342">
+          <caret line="117" column="20" lean-forward="true" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <element signature="e#417#1643#0" />
-            <element signature="e#1679#2543#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jsonParsing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="23" column="53" lean-forward="true" selection-start-line="23" selection-start-column="53" selection-end-line="23" selection-end-column="53" />
         </state>
       </provider>
     </entry>

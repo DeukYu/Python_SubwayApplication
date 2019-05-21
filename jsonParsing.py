@@ -24,3 +24,11 @@ def FindStationFirstLast(stationName):
         data = json.loads(url.read().decode('utf-8'))
         print(data)
         return data
+
+def FindStationUseRate(stationName):
+    base_url = 'http://openapi.seoul.go.kr:8088/(인증키)/xml/CardSubwayTime/1/100/201501//'
+    path = urllib.parse.quote(stationName)
+    with urllib.request.urlopen(base_url + path) as url:
+        data = json.loads(url.read().decode('utf-8'))
+        print(data)
+        return data
