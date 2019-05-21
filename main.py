@@ -1,6 +1,6 @@
 from tkinter import *
 import tkinter.messagebox
-from jsonParsing import FindStation
+from jsonParsing import FindStation, FindStationFirstLast
 import mimetypes
 
 
@@ -10,10 +10,27 @@ port = "587"
 import folium
 
 class tkSubway:
-#    def MapView(self, x, y, Info):
-#        map_osm = folium.Map(location=[x, y], zoom_start=13)
-#        folium.Marker([x, y], popup=Info).add_to(map_osm)
-#        map_osm.save('osm.html')
+    def FirstLastView(self, stationName):
+        firstlastDict = FindStationFirstLast(stationName)
+        totalCount = firstlastDict['timeTableList'][0]['totalCount']
+        totalCountLen = (totalCount + 1) * 20 + 30
+        totalCountStr = str(totalCountLen)
+        toplevel = Toplevel(self.window)
+        toplevel.geometry("450x" + totalCountStr + "+1300+200")
+        Label(toplevel, text=stationName + "역 첫차, 막차 정보(평일/토요일/휴일 순)", relief="solid").place(x=10, y=10)
+        yValue = 40
+
+        for i in range(totalCount):
+            Label(toplevel, text=firstlastDict['timeTableList'][i]['subwayNm']).place(x=10, y=yValue)
+            Label(toplevel, text=firstlastDict['timeTableList'][i]['subwayename'] + "방면").place(x=100, y=yValue)
+            Label(toplevel, text=firstlastDict['timeTableList'][i]['weekendTranHour']).place(x=250, y=yValue)
+            Label(toplevel, text=firstlastDict['timeTableList'][i]['saturdayTranHour']).place(x=300, y=yValue)
+            Label(toplevel, text=firstlastDict['timeTableList'][i]['holidayTranHour']).place(x=350, y=yValue)
+            yValue += 20
+
+
+
+        #Label(text=)
     def SendEmail(self):
         global host, port
         html = ""
@@ -99,9 +116,7 @@ class tkSubway:
         yValue += 30
         Label(self.frame4, text="전화번호 : " + stationInfoDict['stationList'][0]['telno']).place(x=10, y=yValue)
         yValue += 30
-#        Button(self.frame4, text="지도보기", command=lambda : self.MapView(stationInfoDict['stationList'][0]['subwayXcnts'],
-#                                                                       stationInfoDict['stationList'][0]['subwayYcnts'],
-#                                                                       stationInfoDict['stationList'][0]['statnNmEng'])).place(x=10, y=yValue)
+        Button(self.frame4, text="첫차 막차 정보", command=lambda : self.FirstLastView(stationName)).place(x=10, y=yValue)
     def check(self):
         #print(self.RadioVariety.get())
         self.frame2.destroy()
