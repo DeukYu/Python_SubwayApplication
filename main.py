@@ -1,6 +1,8 @@
 from tkinter import *
 import tkinter.messagebox
 from jsonParsing import FindStation, FindStationFirstLast, FindStationUseRate
+from kakaoParsing import FindAddress2
+import webbrowser, urllib.request
 import mimetypes
 
 
@@ -10,6 +12,16 @@ port = "587"
 import folium
 
 class tkSubway:
+    def MapView(self, stationName):
+        yx = FindAddress2(stationName + "역")
+        map_osm = folium.Map(location=[yx[0], yx[1]], zoom_start=15)
+        folium.Marker([yx[0], yx[1]], popup=stationName + "역").add_to(map_osm)
+        map_osm.save('osm.html')
+        url = 'osm.html'
+        webbrowser.open(url)
+        #urllib.request.urlretrieve(url, 'osmpng.png')
+
+
     def FirstLastView(self, stationName):
         firstlastDict = FindStationFirstLast(stationName)
         totalCount = firstlastDict['timeTableList'][0]['totalCount']
@@ -114,7 +126,9 @@ class tkSubway:
         Label(self.frame4, text="전화번호 : " + stationInfoDict['stationList'][0]['telno']).place(x=10, y=yValue)
         yValue += 30
         Button(self.frame4, text="첫차 막차 정보", command=lambda : self.FirstLastView(stationName)).place(x=10, y=yValue)
-        FindStationUseRate(stationName)
+        yValue += 30
+        Button(self.frame4, text="지도보기", command=lambda: self.MapView(stationName)).place(x=10, y=yValue)
+        #FindStationUseRate(stationName)
     def check(self):
         #print(self.RadioVariety.get())
         self.frame2.destroy()
@@ -129,10 +143,14 @@ class tkSubway:
             self.frame3.pack(side="left", fill="both", expand=True)
             self.frame4 = Frame(self.frame2, bd=2)
             self.frame4.pack(side="right", fill="both", expand=True)
-            Label(self.frame3, text="역 명 입력").place(x=10, y=10)
-            self.StationNameEntry = Entry(self.frame3)
+            self.frame5 = Frame(self.frame3, bd=2)
+            self.frame5.pack(side="top", fill="both", expand=True)
+            self.frame6 = Frame(self.frame3, bd=2)
+            self.frame6.pack(side="bottom", fill="both", expand=True)
+            Label(self.frame5, text="역 명 입력").place(x=10, y=10)
+            self.StationNameEntry = Entry(self.frame5)
             self.StationNameEntry.place(x=13, y=40, height=20)
-            Button(self.frame3, text="확인", command=self.FindStation).place(x=160, y=37)
+            Button(self.frame5, text="확인", command=self.FindStation).place(x=160, y=37)
         if (self.RadioVariety.get() == 4):      #역 구간 정보
             pass
         if (self.RadioVariety.get() == 5):      #분실물 검색
