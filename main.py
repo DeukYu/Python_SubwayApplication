@@ -127,7 +127,7 @@ class tkSubway:
         yValue += 30
         Button(self.frame4, text="첫차 막차 정보", command=lambda : self.FirstLastView(stationName)).place(x=10, y=yValue)
         yValue += 30
-        Button(self.frame4, text="지도보기", command=lambda: self.MapView(stationName)).place(x=10, y=yValue)
+        #Button(self.frame4, text="지도보기", command=lambda: self.MapView(stationName)).place(x=10, y=yValue)
         #FindStationUseRate(stationName)
     def check(self):
         #print(self.RadioVariety.get())
