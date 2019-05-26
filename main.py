@@ -2,6 +2,7 @@ from tkinter import *
 import tkinter.messagebox
 from jsonParsing import FindStation, FindStationFirstLast, FindStationUseRate
 from kakaoParsing import FindAddress2
+from stdafx import _FindRoute
 import webbrowser, urllib.request
 import mimetypes
 
@@ -129,6 +130,47 @@ class tkSubway:
         yValue += 30
         #Button(self.frame4, text="지도보기", command=lambda: self.MapView(stationName)).place(x=10, y=yValue)
         #FindStationUseRate(stationName)
+    def FindRoute(self):
+        if self.frames:
+            for i in self.frames:
+                i.destroy()
+        startName = self.StartStationEntry.get()
+        endName = self.EndStationEntry.get()
+        data = _FindRoute(startName, endName)
+        Label(self.frame6, text="출발 시간 " + data['startTime']).place(x=10,y=10)
+        Label(self.frame6, text="도착 시간 " + data['endTime']).place(x=10,y=40)
+        Label(self.frame6, text="이동 거리 " + data['totalLen']).place(x=10, y=70)
+        Label(self.frame6, text="이동 시간 " + data['totalTime']).place(x=10, y=100)
+        route = data['Route']
+        print(route)
+
+        size = data['Size']
+        ysize = 400 // size
+        self.frames = []
+        for i in range(size):
+            frame = Frame(self.frame4, bd=2, height=ysize)
+            self.frames.append(frame)
+
+        for i in self.frames:
+            i.pack(side="top", fill="both")
+        frame = Frame(self.frame4, bd=2)
+        self.frames.append(frame)
+        self.frames[-1].pack(side="top", fill="both", expand=True)
+
+        for i in range(size):
+            Label(self.frames[i], text=route[i][0][0]).place(x=10, y=0)
+            Label(self.frames[i], bg=route[i][1], width=5, height = ysize//17).place(x=10, y=20)
+        Label(self.frames[-1], text=route[-1][0][1]).place(x=10, y=0)
+
+        for i in range(size):
+            if(route[i][0][3] == "한글"):
+                Label(self.frames[i], text=route[i][0][2] + ' ' + route[i][0][4]).place(x=60, y=ysize//2 - 30)
+            else:
+                Label(self.frames[i], text=route[i][0][2] + ' ' + route[i][0][3] + "(" + route[i][0][4] + ")").place(x=60, y=ysize//2 - 30)
+            Label(self.frames[i], text=route[i][0][5]).place(x=60, y=ysize//2 - 10)
+            Label(self.frames[i], text=route[i][0][6]).place(x=60, y=ysize//2 + 10)
+
+
     def check(self):
         #print(self.RadioVariety.get())
         self.frame2.destroy()
@@ -149,10 +191,26 @@ class tkSubway:
             self.frame6.pack(side="bottom", fill="both", expand=True)
             Label(self.frame5, text="역 명 입력").place(x=10, y=10)
             self.StationNameEntry = Entry(self.frame5)
-            self.StationNameEntry.place(x=13, y=40, height=20)
+            self.StationNameEntry.place(x=13, y=40)
             Button(self.frame5, text="확인", command=self.FindStation).place(x=160, y=37)
         if (self.RadioVariety.get() == 4):      #역 구간 정보
-            pass
+            self.frame3=Frame(self.frame2, bd=2, relief="solid",width=300)
+            self.frame3.pack(side="left", fill="both")
+            self.frame4 = Frame(self.frame2, bd=2)
+            self.frame4.pack(side="right", fill="both", expand=True)
+            self.frame5 = Frame(self.frame3, bd=2,width=300,height=180, relief="solid")
+            self.frame5.pack(side="top", fill="both")
+            self.frame6 = Frame(self.frame3, bd=2,width=300, relief="solid")
+            self.frame6.pack(side="bottom", fill="both", expand=True)
+            self.frames = []
+            Label(self.frame5, text="출발역 입력").place(x=10, y=10)
+            self.StartStationEntry = Entry(self.frame5)
+            self.StartStationEntry.place(x=13, y=40)
+            Label(self.frame5, text="도착역 입력").place(x=10, y=60)
+            self.EndStationEntry = Entry(self.frame5)
+            self.EndStationEntry.place(x=13, y=90)
+            Button(self.frame5, text="확인", command=self.FindRoute).place(x=160, y=87)
+
         if (self.RadioVariety.get() == 5):      #분실물 검색
             pass
         if (self.RadioVariety.get() == 6):      #G-mail
