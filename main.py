@@ -186,13 +186,11 @@ class tkSubway:
         LA_Data = Lost_Article(self.Combobox1.get(), Sub_Code)
         totalCount = LA_Data['SearchLostArticleService']['list_total_count']
 
-        listbox = tkinter.Listbox(self.frame2, selectmode='extended', height=0, width=0)
-
         for i in range(5):
-            listbox.insert(i, '습득한 역: ' + LA_Data['SearchLostArticleService']['row'][i]['TAKE_PLACE'])
-            listbox.insert(i, '습득 물품: ' + LA_Data['SearchLostArticleService']['row'][i]['GET_NAME'])
-            listbox.insert(i, '습득 날짜: ' + LA_Data['SearchLostArticleService']['row'][i]['GET_DATE'])
-        listbox.pack()
+            #self.listbox.insert(i, '분실물 ID: ' + LA_Data['SearchLostArticleService']['row'][i]['ID'])
+            self.listbox.insert(i, '습득한 역: ' + LA_Data['SearchLostArticleService']['row'][i]['TAKE_PLACE'])
+            self.listbox.insert(i, '습득 물품: ' + LA_Data['SearchLostArticleService']['row'][i]['GET_NAME'])
+            self.listbox.insert(i, '습득 날짜: ' + LA_Data['SearchLostArticleService']['row'][i]['GET_DATE'])
 
     def LostArticle(self):
         self.ArticleFrame1 = Frame(self.frame2, bd=2, relief="solid")
@@ -209,6 +207,13 @@ class tkSubway:
         self.Combobox2['value'] = ('1~4호선', '5~8호선', '코레일', '9호선')
         self.Combobox2.current(0)
         self.Combobox2.pack()
+
+        scrollbar = tkinter.Scrollbar(self.frame2)
+        scrollbar.pack(side="right", fill="y")
+        self.listbox = tkinter.Listbox(self.frame2, selectmode='extended', yscrollcommand=scrollbar.set, height=25, width=50)
+        self.listbox.pack()
+
+        scrollbar["command"] = self.listbox.yview
 
         Button(text="확인", command=self.ParsingArticle).pack()
         pass
