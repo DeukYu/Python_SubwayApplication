@@ -183,14 +183,16 @@ class tkSubway:
         elif '9호선' == self.Combobox2.get():
             Sub_Code = str('s4')
 
-        self.LA_Data = Lost_Article(self.Combobox1.get(), Sub_Code)
+        LA_Data = Lost_Article(self.Combobox1.get(), Sub_Code)
+        totalCount = LA_Data['SearchLostArticleService']['list_total_count']
 
+        listbox = tkinter.Listbox(self.frame2, selectmode='extended', height=0, width=0)
 
-        listbox = tkinter.Listbox(self.frame3, selectmode='extended', height=0)
-
-        for i in range():
-            pass
-        pass
+        for i in range(5):
+            listbox.insert(i, '습득한 역: ' + LA_Data['SearchLostArticleService']['row'][i]['TAKE_PLACE'])
+            listbox.insert(i, '습득 물품: ' + LA_Data['SearchLostArticleService']['row'][i]['GET_NAME'])
+            listbox.insert(i, '습득 날짜: ' + LA_Data['SearchLostArticleService']['row'][i]['GET_DATE'])
+        listbox.pack()
 
     def LostArticle(self):
         self.ArticleFrame1 = Frame(self.frame2, bd=2, relief="solid")
@@ -209,9 +211,6 @@ class tkSubway:
         self.Combobox2.pack()
 
         Button(text="확인", command=self.ParsingArticle).pack()
-
-        self.ArticleFrame2 = Frame(self.frame3, bd=2, relief="solid")
-        self.ArticleFrame2.pack()
         pass
 
     def check(self):
