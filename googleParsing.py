@@ -13,7 +13,7 @@ def FindStation(origin, dest):
         return data
 
 
-data = FindStation("병점", "여수")
+#data = FindStation("병점", "여수")
 #print(data['routes'][0]['legs'])
 #print(data['routes'][0]['legs'][0]['departure_time']['text'])
 #print(data['routes'][0]['legs'][0]['arrival_time']['text'])

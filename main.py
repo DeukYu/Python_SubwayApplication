@@ -1,10 +1,11 @@
 from tkinter import *
 import tkinter.messagebox
-from jsonParsing import FindStation, FindStationFirstLast, FindStationUseRate
+from jsonParsing import FindStation, FindStationFirstLast, FindStationUseRate, Lost_Article
 from kakaoParsing import FindAddress2
 from stdafx import _FindRoute
 import webbrowser, urllib.request
 import mimetypes
+from tkinter import ttk
 
 
 host = "smtp.gmail.com"  # Gmail STMP 서버 주소.
@@ -170,6 +171,48 @@ class tkSubway:
             Label(self.frames[i], text=route[i][0][5]).place(x=60, y=ysize//2 - 10)
             Label(self.frames[i], text=route[i][0][6]).place(x=60, y=ysize//2 + 10)
 
+    # 습득물분류: 지갑, 쇼핑백, 서류봉투, 가방, 배낭, 핸드폰, 옷, 책, 파일, 기타
+    # 습득물코드: s1(1~4호선), s2(5~8호선), s3(코레일), s4(9호선)
+    def ParsingArticle(self):
+        if '1~4호선' == self.Combobox2.get():
+            Sub_Code = str('s1')
+        elif '5~8호선' == self.Combobox2.get():
+            Sub_Code = str('s2')
+        elif '코레일' == self.Combobox2.get():
+            Sub_Code = str('s3')
+        elif '9호선' == self.Combobox2.get():
+            Sub_Code = str('s4')
+
+        self.LA_Data = Lost_Article(self.Combobox1.get(), Sub_Code)
+
+
+        listbox = tkinter.Listbox(self.frame3, selectmode='extended', height=0)
+
+        for i in range():
+            pass
+        pass
+
+    def LostArticle(self):
+        self.ArticleFrame1 = Frame(self.frame2, bd=2, relief="solid")
+        self.ArticleFrame1.pack(side="left", fill="both")
+
+        self.str1 = StringVar()
+        self.str2 = StringVar()
+
+        self.Combobox1 = ttk.Combobox(self.ArticleFrame1, textvariable=self.str1, width=20)
+        self.Combobox1['value'] = ('지갑', '쇼핑백', '서류봉투', '가방', '배낭', '핸드폰', '옷', '책', '파일', '기타')
+        self.Combobox1.current(0)
+        self.Combobox1.pack()
+        self.Combobox2 = ttk.Combobox(self.ArticleFrame1, textvariable=self.str2, width=20)
+        self.Combobox2['value'] = ('1~4호선', '5~8호선', '코레일', '9호선')
+        self.Combobox2.current(0)
+        self.Combobox2.pack()
+
+        Button(text="확인", command=self.ParsingArticle).pack()
+
+        self.ArticleFrame2 = Frame(self.frame3, bd=2, relief="solid")
+        self.ArticleFrame2.pack()
+        pass
 
     def check(self):
         #print(self.RadioVariety.get())
@@ -212,7 +255,7 @@ class tkSubway:
             Button(self.frame5, text="확인", command=self.FindRoute).place(x=160, y=87)
 
         if (self.RadioVariety.get() == 5):      #분실물 검색
-            pass
+            self.LostArticle()
         if (self.RadioVariety.get() == 6):      #G-mail
             self.sendMain()
             pass

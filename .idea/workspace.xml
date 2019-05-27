@@ -15,18 +15,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="25" selection-start-line="25" selection-end-line="28" selection-end-column="45" />
+            <state relative-caret-position="739">
+              <caret line="241" column="47" lean-forward="true" selection-start-line="241" selection-start-column="47" selection-end-line="241" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/osm.html">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://C:/Python37/Lib/tkinter/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="202">
+              <caret line="1704" selection-start-line="1704" selection-end-line="1704" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -38,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jsonParsing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="50" column="19" lean-forward="true" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+            <state relative-caret-position="-112">
+              <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -50,7 +57,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/Python37/Lib/json/decoder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
+            <state relative-caret-position="9856">
               <caret line="354" selection-start-line="354" selection-end-line="354" />
             </state>
           </provider>
@@ -59,7 +66,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/Python37/Lib/http/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
+            <state relative-caret-position="34188">
               <caret line="1228" selection-start-line="1228" selection-end-line="1228" />
             </state>
           </provider>
@@ -68,7 +75,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/Python37/Lib/urllib/request.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
+            <state relative-caret-position="5516">
               <caret line="221" selection-start-line="221" selection-end-line="221" />
             </state>
           </provider>
@@ -77,7 +84,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kakaoParsing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
+            <state relative-caret-position="588">
               <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
@@ -86,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/googleParsing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="53" />
+            <state relative-caret-position="392">
+              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -112,6 +119,8 @@
       <find>mysmtplib</find>
       <find>htmlFileName</find>
       <find>check</find>
+      <find>command</find>
+      <find>FindStation</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,17 +133,17 @@
         <option value="$PROJECT_DIR$/gmail.py" />
         <option value="$PROJECT_DIR$/FirstLast.py" />
         <option value="$PROJECT_DIR$/kakaoParsing.py" />
-        <option value="$PROJECT_DIR$/googleParsing.py" />
         <option value="$PROJECT_DIR$/stdafx.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/xmlParsing.py" />
         <option value="$PROJECT_DIR$/jsonParsing.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/googleParsing.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="242" />
-    <option name="y" value="96" />
+    <option name="x" value="555" />
+    <option name="y" value="80" />
     <option name="width" value="1121" />
     <option name="height" value="899" />
   </component>
@@ -143,6 +152,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -154,7 +164,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -178,7 +187,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.jsonParsing">
+  <component name="RunManager" selected="Python.main">
     <configuration name="googleParsing" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FinalProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -286,8 +295,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.jsonParsing" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.jsonParsing" />
         <item itemvalue="Python.googleParsing" />
         <item itemvalue="Python.stdafx" />
         <item itemvalue="Python.kakaoParsing" />
@@ -339,11 +348,6 @@
           <line>1</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/jsonParsing.py</url>
-          <line>39</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -358,7 +362,6 @@
     <entry file="file://$PROJECT_DIR$/../../한국산업기술대학교/3학년 1학기(2019)/스크립트언어(김영식 교수님)/python36-master/python36-master/2부/17장/gmail.py" />
     <entry file="file://E:/Json_parsing_ex/tkinterEx.py" />
     <entry file="file://E:/Json_parsing_ex/parsing.py" />
-    <entry file="file://C:/Python37/Lib/tkinter/__init__.py" />
     <entry file="file://$PROJECT_DIR$/FirstLast.py" />
     <entry file="file://$PROJECT_DIR$/gmail.py" />
     <entry file="file://C:/Program Files/Python37/Lib/site-packages/folium/map.py" />
@@ -380,16 +383,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Python37/Lib/json/decoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9856">
+          <caret line="354" selection-start-line="354" selection-end-line="354" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/Python37/Lib/http/client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
+        <state relative-caret-position="34188">
           <caret line="1228" selection-start-line="1228" selection-end-line="1228" />
         </state>
       </provider>
     </entry>
     <entry file="file://C:/Python37/Lib/urllib/request.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
+        <state relative-caret-position="5516">
           <caret line="221" selection-start-line="221" selection-end-line="221" />
         </state>
       </provider>
@@ -397,38 +407,41 @@
     <entry file="file://$PROJECT_DIR$/.gitattributes">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/jsonParsing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="25" selection-start-line="25" selection-end-line="28" selection-end-column="45" />
+        <state relative-caret-position="-112">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/googleParsing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Python37/Lib/json/decoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="354" selection-start-line="354" selection-end-line="354" />
+        <state relative-caret-position="392">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kakaoParsing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
+        <state relative-caret-position="588">
           <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jsonParsing.py">
+    <entry file="file://C:/Python37/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="50" column="19" lean-forward="true" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+        <state relative-caret-position="202">
+          <caret line="1704" selection-start-line="1704" selection-end-line="1704" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="739">
+          <caret line="241" column="47" lean-forward="true" selection-start-line="241" selection-start-column="47" selection-end-line="241" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
