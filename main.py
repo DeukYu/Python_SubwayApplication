@@ -141,9 +141,22 @@ class tkSubway:
 
         scrollbar["command"] = self.FistLastView_ListBox.yview
 
+        #self.FistLastView_ListBox.insert(0, stationName + "역 첫차, 막차 정보(평일/토요일/휴일 순)")
+        #Label(toplevel, text=stationName + "역 첫차, 막차 정보(평일/토요일/휴일 순)", relief="solid").place(x=10, y=10)
+        firstlastDict = FindStationFirstLast(stationName)
+        totalCount = firstlastDict['timeTableList'][0]['totalCount']
 
-        Button(self.frame4, text="첫차 막차 정보", command=lambda : self.FirstLastView(stationName)).place(x=10, y=yValue)
-        yValue += 30
+        for i in range(totalCount):
+            self.FistLastView_ListBox.insert(i, firstlastDict['timeTableList'][i]['subwayNm'] +
+                                             firstlastDict['timeTableList'][i]['subwayename'] + "방면" +
+                                             firstlastDict['timeTableList'][i]['weekendTranHour'] +
+                                             firstlastDict['timeTableList'][i]['saturdayTranHour'] +
+                                             firstlastDict['timeTableList'][i]['holidayTranHour']
+                                             )
+
+
+        Label(self.frame4, text=stationName + "역 첫차, 막차 정보(평일/토요일/휴일 순) 정보").place(x=10, y=yValue)
+
         #Button(self.frame4, text="지도보기", command=lambda: self.MapView(stationName)).place(x=10, y=yValue)
         #FindStationUseRate(stationName)
     def FindRoute(self):
