@@ -105,11 +105,14 @@ class tkSubway:
         self.MsgText.place(x=75, y=100)
         Button(self.EmailFrame, text="SEND", command=self.SendEmail, width=11, height=5).place(x=375,y=7)
 
+        imageLabel = Label(self.EmailFrame, image=self.EmailPhoto)
+        imageLabel.place(x=530, y= 10)
 
     def FindStation(self):
         self.frame4.destroy()
         self.frame4 = Frame(self.frame2, bd=2)
         self.frame4.pack(side="right", fill="both", expand=True)
+
         stationName = self.StationNameEntry.get()
         stationInfoDict = FindStation(stationName)
         totalcount = stationInfoDict['stationList'][0]['totalCount']
@@ -127,6 +130,18 @@ class tkSubway:
         yValue += 30
         Label(self.frame4, text="전화번호 : " + stationInfoDict['stationList'][0]['telno']).place(x=10, y=yValue)
         yValue += 30
+
+        scrollbar = tkinter.Scrollbar(self.frame4)
+        scrollbar.pack(side="right", fill="y")
+
+
+        self.FistLastView_ListBox = tkinter.Listbox(self.frame4, selectmode='extended', yscrollcommand=scrollbar.set,
+                                                    height=14, width=48)
+        self.FistLastView_ListBox.place(x=10, y=230)
+
+        scrollbar["command"] = self.FistLastView_ListBox.yview
+
+
         Button(self.frame4, text="첫차 막차 정보", command=lambda : self.FirstLastView(stationName)).place(x=10, y=yValue)
         yValue += 30
         #Button(self.frame4, text="지도보기", command=lambda: self.MapView(stationName)).place(x=10, y=yValue)
@@ -308,6 +323,9 @@ class tkSubway:
         self.radio[3].pack(side=LEFT)
         self.radio[4].pack(side=LEFT)
         self.radio[5].pack(side=LEFT)
+
+        # Email Image
+        self.EmailPhoto = PhotoImage(file="1.gif")
 
         self.window.mainloop()
 tkSubway()
