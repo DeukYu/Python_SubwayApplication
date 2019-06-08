@@ -2,11 +2,10 @@ from tkinter import *
 import tkinter.messagebox
 from jsonParsing import FindStation, FindStationFirstLast, FindStationUseRate, Lost_Article
 from kakaoParsing import FindAddress2
-from stdafx import _FindRoute
+from googleParsing import _FindRoute, FindNearStation
 import webbrowser, urllib.request
 import mimetypes
 from tkinter import ttk
-
 
 host = "smtp.gmail.com"  # Gmail STMP 서버 주소.
 port = "587"
@@ -22,7 +21,6 @@ class tkSubway:
         url = 'osm.html'
         webbrowser.open(url)
         #urllib.request.urlretrieve(url, 'osmpng.png')
-
 
     def FirstLastView(self, stationName):
         firstlastDict = FindStationFirstLast(stationName)
@@ -81,8 +79,6 @@ class tkSubway:
         self.senderPw.delete(0, self.senderPw.index(END))
         self.Subject.delete(0, self.Subject.index(END))
         self.MsgText.delete(1.0, tkinter.END)
-
-
 
     def sendMain(self):
         self.EmailFrame = Frame(self.frame2, bd=2)
@@ -172,12 +168,24 @@ class tkSubway:
         Label(self.frame6, text="이동 시간 " + data['totalTime']).place(x=10, y=100)
         route = data['Route']
         print(route)
-
+        tempsize = []
+        tempfullsize = 0
+        for i in range(data['Size']):
+            tempsize.append(data['Route'][i][-1])
+            tempfullsize += data['Route'][i][-1]
+        for i in range(tempsize.__len__()):
+            tempsize[i] = tempsize[i] / tempfullsize
+        print(tempsize)
         size = data['Size']
-        ysize = 400 // size
+        ysize = []
+        for i in range(size):
+            if int(400 * tempsize[i]) < 90:
+                ysize.append(90)
+            else:
+                ysize.append(int(400 * tempsize[i]))
         self.frames = []
         for i in range(size):
-            frame = Frame(self.frame4, bd=2, height=ysize)
+            frame = Frame(self.frame4, bd=2, height=ysize[i])
             self.frames.append(frame)
 
         for i in self.frames:
@@ -187,17 +195,17 @@ class tkSubway:
         self.frames[-1].pack(side="top", fill="both", expand=True)
 
         for i in range(size):
-            Label(self.frames[i], text=route[i][0][0]).place(x=10, y=0)
-            Label(self.frames[i], bg=route[i][1], width=5, height = ysize//17).place(x=10, y=20)
-        Label(self.frames[-1], text=route[-1][0][1]).place(x=10, y=0)
+            Label(self.frames[i], text=route[i][0] ).place(x=10, y=0)
+            Label(self.frames[i], bg=route[i][-2], width=5, height = ysize[i]//10).place(x=10, y=20)
+        Label(self.frames[-1], text=route[-1][1]).place(x=10, y=0)
 
         for i in range(size):
-            if(route[i][0][3] == "한글"):
-                Label(self.frames[i], text=route[i][0][2] + ' ' + route[i][0][4]).place(x=60, y=ysize//2 - 30)
+            if(route[i][3] == "한글"):
+                Label(self.frames[i], text=route[i][2] + ' ' + route[i][4]).place(x=60, y=ysize[i]//2 - 30)
             else:
-                Label(self.frames[i], text=route[i][0][2] + ' ' + route[i][0][3] + "(" + route[i][0][4] + ")").place(x=60, y=ysize//2 - 30)
-            Label(self.frames[i], text=route[i][0][5]).place(x=60, y=ysize//2 - 10)
-            Label(self.frames[i], text=route[i][0][6]).place(x=60, y=ysize//2 + 10)
+                Label(self.frames[i], text=route[i][2] + ' ' + route[i][3] + "(" + route[i][4] + ")").place(x=60, y=ysize[i]//2 - 30)
+            Label(self.frames[i], text=route[i][5]).place(x=60, y=ysize[i]//2 - 10)
+            Label(self.frames[i], text=route[i][6]).place(x=60, y=ysize[i]//2 + 10)
 
     # 습득물분류: 지갑, 쇼핑백, 서류봉투, 가방, 배낭, 핸드폰, 옷, 책, 파일, 기타
     # 습득물코드: s1(1~4호선), s2(5~8호선), s3(코레일), s4(9호선)
@@ -224,7 +232,6 @@ class tkSubway:
             self.listbox.insert((i * 5) + 2, '습득한 역 ' + LA_Data['SearchLostArticleService']['row'][i]['TAKE_PLACE'])
             self.listbox.insert((i * 5) + 3, '습득 물품 ' + LA_Data['SearchLostArticleService']['row'][i]['GET_NAME'])
             self.listbox.insert((i * 5) + 4, "")
-
 
     def LostArticle(self):
         self.ArticleFrame1 = Frame(self.frame2, bd=2, relief="solid", height=100)
@@ -254,6 +261,16 @@ class tkSubway:
 
         Button(self.ArticleFrame1, text="확인", command=self.ParsingArticle).pack(side=LEFT)
 
+    def NearBySearch(self):
+        self.listbox.delete(0, END)
+        Place = self.PlaceEntry.get()
+        placeList = FindNearStation(Place)
+        for i in range(placeList.__len__()):
+            if(placeList[i][0] == '한글'):
+                self.listbox.insert(i, placeList[i][1] + '  (' + str(placeList[i][2]) + ', ' + str(placeList[i][3]) + ')  거리 : ' + placeList[i][4] + ' m, 걸어서 ' + str(placeList[i][5]) +'분')
+            else:
+                self.listbox.insert(i, placeList[i][0] + '(' + placeList[i][1] + ')  (' + str(placeList[i][2]) + ', ' + str(placeList[i][3]) + ')  거리 : ' + placeList[i][4] + ' m, 걸어서 ' + str(placeList[i][5]) +'분')
+
     def check(self):
         #print(self.RadioVariety.get())
         self.frame2.destroy()
@@ -262,7 +279,17 @@ class tkSubway:
         if(self.RadioVariety.get() == 1):
             Label(self.frame2, image=self.Subway).pack()
         if(self.RadioVariety.get() == 2):       #가까운 역 찾기
-            pass
+            Label(self.frame2, text="위치 입력").place(x=10, y=10)
+            self.PlaceEntry = Entry(self.frame2)
+            self.PlaceEntry.place(x=13, y=40)
+            Button(self.frame2, text="확인", command=self.NearBySearch).place(x=160, y=37)
+            scrollbar = tkinter.Scrollbar(self.frame2)
+            scrollbar.place(x=715, y=70, height=400)
+            self.listbox = tkinter.Listbox(self.frame2, selectmode='extended', yscrollcommand=scrollbar.set,
+                                           height=25, width=100)
+            self.listbox.place(x=10, y=70)
+            scrollbar["command"] = self.listbox.yview
+
         if (self.RadioVariety.get() == 3):      #역 정보 검색
             self.frame3 = Frame(self.frame2, bd=2, relief="solid")
             self.frame3.pack(side="left", fill="both", expand=True)

@@ -1,5 +1,3 @@
-from googleParsing import FindStation
-from kakaoParsing import Translation
 import pprint
 
 def isKorean(input_s):
@@ -41,43 +39,11 @@ class Rect():
             self.top = self.posY - (self.sizeY / 2)
             self.bottom = self.posY + (self.sizeY / 2)
 
-def _FindRoute(start, end):
-    data = FindStation(start, end)
-    #print(data['routes'][0]['legs'])
-    startTime = (data['routes'][0]['legs'][0]['departure_time']['text'])
-    endTime = (data['routes'][0]['legs'][0]['arrival_time']['text'])
-    totalLen = (data['routes'][0]['legs'][0]['distance']['text'])
-    totalTime = (data['routes'][0]['legs'][0]['duration']['text'])
-    Route = []
 
-    if (data['routes'][0]['legs'][0]['steps'][0]['travel_mode'] == 'TRANSIT'):
-        if isKorean(data['routes'][0]['legs'][0]['steps'][0]['transit_details']['headsign']):
-            Route = [[[start,
-                       Translation(data['routes'][0]['legs'][0]['steps'][0]['transit_details']['arrival_stop']['name']),
-                       data['routes'][0]['legs'][0]['steps'][0]['transit_details']['line']['short_name'],
-                       "한글",
-                       data['routes'][0]['legs'][0]['steps'][0]['transit_details']['headsign'] + " 행 열차",
-                       data['routes'][0]['legs'][0]['steps'][0]['transit_details']['departure_time']['text'] + " ~ " +
-                       data['routes'][0]['legs'][0]['steps'][0]['transit_details']['arrival_time']['text'],
-                       str(data['routes'][0]['legs'][0]['steps'][0]['transit_details']['num_stops']) + " 정거장"],
-                      data['routes'][0]['legs'][0]['steps'][0]['transit_details']['line']['color']]]
+def getnum(string):
+    tempstr =''
+    for i in range(string.__len__()):
+        if string[i] in ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+            tempstr += string[i]
 
-        else:
-            Route = [[[start, Translation(data['routes'][0]['legs'][0]['steps'][0]['transit_details']['arrival_stop']['name']), data['routes'][0]['legs'][0]['steps'][0]['transit_details']['line']['short_name'], Translation(data['routes'][0]['legs'][0]['steps'][0]['transit_details']['headsign']) + " 행 열차",data['routes'][0]['legs'][0]['steps'][0]['transit_details']['headsign'] + " 행 열차" , data['routes'][0]['legs'][0]['steps'][0]['transit_details']['departure_time']['text'] + " ~ " + data['routes'][0]['legs'][0]['steps'][0]['transit_details']['arrival_time']['text'], str(data['routes'][0]['legs'][0]['steps'][0]['transit_details']['num_stops']) + " 정거장"], data['routes'][0]['legs'][0]['steps'][0]['transit_details']['line']['color']]]
-    data2 = data['routes'][0]['legs'][0]['steps'][1:]
-    for i in data2:
-        if i['travel_mode'] == 'TRANSIT':
-            if isKorean(i['transit_details']['headsign']):
-                Route.append([[Translation(i['transit_details']['departure_stop']['name']), Translation(i['transit_details']['arrival_stop']['name']), i['transit_details']['line']['short_name'], "한글", i['transit_details']['headsign'] + " 행 열차" , i['transit_details']['departure_time']['text'] + " ~ " + i['transit_details']['arrival_time']['text'], str(i['transit_details']['num_stops']) + " 정거장"], i['transit_details']['line']['color']])
-            else:
-                Route.append([[Translation(i['transit_details']['departure_stop']['name']), Translation(i['transit_details']['arrival_stop']['name']), i['transit_details']['line']['short_name'], Translation(i['transit_details']['headsign']) + " 행 열차", i['transit_details']['headsign'] + " 행 열차" , i['transit_details']['departure_time']['text'] + " ~ " + i['transit_details']['arrival_time']['text'], str(i['transit_details']['num_stops']) + " 정거장"], i['transit_details']['line']['color']])
-
-
-    returnData = {'startTime': startTime}
-    returnData['endTime'] = endTime
-    returnData['totalLen'] = totalLen
-    returnData['totalTime'] = totalTime
-    returnData['Route'] = Route
-    returnData['Size'] = int(returnData['Route'].__len__())
-
-    return returnData
+    return int(tempstr)
