@@ -7,7 +7,7 @@ def FindStation(origin, dest):
     destPos = FindAddress2(dest + "역")
     originUrl = str(originPos[0]) + ',' + str(originPos[1])
     destUrl = str(destPos[0]) + ',' + str(destPos[1])
-    base_url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+ originUrl +'&destination='+ destUrl +'&mode=transit&key=AIzaSyCg0fDlbw8XRm5A29-ETy_Ic2O7fHppdIo'
+    base_url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+ originUrl +'&destination='+ destUrl +'&mode=transit&transit_mode=subway&key=AIzaSyCg0fDlbw8XRm5A29-ETy_Ic2O7fHppdIo'
     with urllib.request.urlopen(base_url) as url:
         data = json.loads(url.read().decode('utf-8'))
         #pprint.pprint(data)
@@ -15,7 +15,7 @@ def FindStation(origin, dest):
 
 def _FindRoute(start, end):
     data = FindStation(start, end)
-    pprint.pprint(data['routes'][0]['legs'])
+    #pprint.pprint(data['routes'][0]['legs'])
     startTime = (data['routes'][0]['legs'][0]['departure_time']['text'])
     endTime = (data['routes'][0]['legs'][0]['arrival_time']['text'])
     totalLen = (data['routes'][0]['legs'][0]['distance']['text'])
@@ -128,3 +128,16 @@ def FindNearStation(addr):
                                    ])
     pprint.pprint(returndata)
     return returndata
+
+def temp(start, end):
+    originPos = FindAddress2(start + "역")
+    destPos = FindAddress2(end + "역")
+    originUrl = str(originPos[0]) + ',' + str(originPos[1])
+    destUrl = str(destPos[0]) + ',' + str(destPos[1])
+    base_url = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + originUrl + '&destination=' + destUrl + '&mode=transit&transit_mode=subway&key=AIzaSyCg0fDlbw8XRm5A29-ETy_Ic2O7fHppdIo'
+    with urllib.request.urlopen(base_url) as url:
+        data = json.loads(url.read().decode('utf-8'))
+        pprint.pprint(data)
+        return data
+
+temp("정왕", "숭실대입구")

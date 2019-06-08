@@ -12,12 +12,13 @@ import re
 from datetime import date, datetime, timedelta
 import traceback
 import jsonParsing
+import telepot
 
 #key = 'sea100UMmw23Xycs33F1EQnumONR%2F9ElxBLzkilU9Yr1oT4TrCot8Y2p0jyuJP72x9rG9D8CN5yuEs6AS2sAiw%3D%3D'#'여기에 API KEY를 입력하세요'
 TOKEN = '889082229:AAHdaKayoSHvJLWE1Qq8yT8GBci-lXT-CeI'#'여기에 텔레그램 토큰을 입력하세요'
 MAX_MSG_LENGTH = 300
 baseurl = 'http://openAPI.seoul.go.kr:8088/4c566371676c64793334654f5a6a7a/json/SearchLostArticleService/1/5/'
-bot = telegram.Bot(TOKEN)
+bot = telepot.Bot(TOKEN)
 
 def getData(name_param, pos_param):
     res_list = []
