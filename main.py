@@ -6,6 +6,13 @@ from googleParsing import _FindRoute, FindNearStation
 import webbrowser, urllib.request
 import mimetypes
 from tkinter import ttk
+import teller
+import noti
+import telepot
+from datetime import date, datetime, timedelta
+from pprint import pprint
+import time
+
 
 host = "smtp.gmail.com"  # Gmail STMP 서버 주소.
 port = "587"
@@ -370,4 +377,19 @@ class tkSubway:
         self.window.mainloop()
 tkSubway()
 
+# 텔레그램 봇
+today = date.today()
+current_month = today.strftime('%Y%m')
+
+print('[', today, ']received token :', noti.TOKEN)
+
+bot = telepot.Bot(noti.TOKEN)
+pprint(bot.getMe())
+
+bot.message_loop(teller.handle)
+
+print('Listening...')
+
+while 1:
+  time.sleep(10)
 #test
