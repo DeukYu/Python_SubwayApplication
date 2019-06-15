@@ -1,4 +1,4 @@
-import pprint
+import spam
 
 def isKorean(input_s):
     k_count = 0
@@ -42,7 +42,7 @@ class Rect():
 
 def getnum(string):
    tempstr =''
-   for i in range(string.__len__()):
+   for i in range(spam.strlen(string)):
        if string[i] in ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]:
            tempstr += string[i]
 
