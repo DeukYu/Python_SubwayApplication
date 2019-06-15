@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_34d7c48245734654a52e293cbe6aa814 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_34d7c48245734654a52e293cbe6aa814" ></div>
+        
+</body>
+<script>    
+    
+            var map_34d7c48245734654a52e293cbe6aa814 = L.map(
+                "map_34d7c48245734654a52e293cbe6aa814",
+                {
+                    center: [37.4617510772234, 126.953914597832],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9d5009c08cd4492498449e2410632b64 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+            var marker_5b38356d9e3d40b7b4057be15adda880 = L.marker(
+                [37.4617510772234, 126.953914597832],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_0e0d7ca60d0b47ccaec8b373bcd104ea = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e62897d805244249bf17921219c09a48 = $(`<div id="html_e62897d805244249bf17921219c09a48" style="width: 100.0%; height: 100.0%;">서울대학교</div>`)[0];
+            popup_0e0d7ca60d0b47ccaec8b373bcd104ea.setContent(html_e62897d805244249bf17921219c09a48);
+        
+
+        marker_5b38356d9e3d40b7b4057be15adda880.bindPopup(popup_0e0d7ca60d0b47ccaec8b373bcd104ea)
+        ;
+
+        
+    
+    
+            var marker_573fdd4da0c4424a8ed022f49f0d036d = L.marker(
+                [37.477117, 126.963418],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_0fbcb94bb3794c3f9d48bc8bcf47bf2e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cdd7d2317d4b493b98340c86fc7d2d0f = $(`<div id="html_cdd7d2317d4b493b98340c86fc7d2d0f" style="width: 100.0%; height: 100.0%;">Nakseongdae station</div>`)[0];
+            popup_0fbcb94bb3794c3f9d48bc8bcf47bf2e.setContent(html_cdd7d2317d4b493b98340c86fc7d2d0f);
+        
+
+        marker_573fdd4da0c4424a8ed022f49f0d036d.bindPopup(popup_0fbcb94bb3794c3f9d48bc8bcf47bf2e)
+        ;
+
+        
+    
+    
+            var marker_48556ad0deeb4567aae8f689539a1b50 = L.marker(
+                [37.48121, 126.952712],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_e555d59456824cf58095cf7db586e0ab = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a30647eba8b54c07a9f082355e35a183 = $(`<div id="html_a30647eba8b54c07a9f082355e35a183" style="width: 100.0%; height: 100.0%;">Seoul Nat‘l Univ. (Gwanak-gu Office) station</div>`)[0];
+            popup_e555d59456824cf58095cf7db586e0ab.setContent(html_a30647eba8b54c07a9f082355e35a183);
+        
+
+        marker_48556ad0deeb4567aae8f689539a1b50.bindPopup(popup_e555d59456824cf58095cf7db586e0ab)
+        ;
+
+        
+    
+    
+            var marker_965e435e54fd43a7ab3dcbf1ecc10501 = L.marker(
+                [37.482476, 126.941574],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_1c5abb9651024dc78261e26b99aa3d3f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4126143f74424245a733076987930947 = $(`<div id="html_4126143f74424245a733076987930947" style="width: 100.0%; height: 100.0%;">Bongcheon station</div>`)[0];
+            popup_1c5abb9651024dc78261e26b99aa3d3f.setContent(html_4126143f74424245a733076987930947);
+        
+
+        marker_965e435e54fd43a7ab3dcbf1ecc10501.bindPopup(popup_1c5abb9651024dc78261e26b99aa3d3f)
+        ;
+
+        
+    
+    
+            var marker_41cba396e243425bb5bc9c2243d58118 = L.marker(
+                [37.476559, 126.981633],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_50ba612146a644fdb694b147b72dd69b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bfcbd20d757d438a92196f6c5e258cdc = $(`<div id="html_bfcbd20d757d438a92196f6c5e258cdc" style="width: 100.0%; height: 100.0%;">Sadang Station station</div>`)[0];
+            popup_50ba612146a644fdb694b147b72dd69b.setContent(html_bfcbd20d757d438a92196f6c5e258cdc);
+        
+
+        marker_41cba396e243425bb5bc9c2243d58118.bindPopup(popup_50ba612146a644fdb694b147b72dd69b)
+        ;
+
+        
+    
+    
+            var marker_a5eaf4829dfd4c0eb9cb4ccb3108fec8 = L.marker(
+                [37.484876, 126.970673],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_c0704b06e6104eb78f0251df8de47ab3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3d854f998dd643f78bb7078ea9c0c8eb = $(`<div id="html_3d854f998dd643f78bb7078ea9c0c8eb" style="width: 100.0%; height: 100.0%;">Namseong station</div>`)[0];
+            popup_c0704b06e6104eb78f0251df8de47ab3.setContent(html_3d854f998dd643f78bb7078ea9c0c8eb);
+        
+
+        marker_a5eaf4829dfd4c0eb9cb4ccb3108fec8.bindPopup(popup_c0704b06e6104eb78f0251df8de47ab3)
+        ;
+
+        
+    
+    
+            var marker_653cc2ceff87476aae1b8c359459e355 = L.marker(
+                [37.464237, 126.989097],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_eb73ceb0cc8b4134ae3fd9ad191131e7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2720b59be13b4abd96ff5572ea68c8b3 = $(`<div id="html_2720b59be13b4abd96ff5572ea68c8b3" style="width: 100.0%; height: 100.0%;">Namtaeryeong station</div>`)[0];
+            popup_eb73ceb0cc8b4134ae3fd9ad191131e7.setContent(html_2720b59be13b4abd96ff5572ea68c8b3);
+        
+
+        marker_653cc2ceff87476aae1b8c359459e355.bindPopup(popup_eb73ceb0cc8b4134ae3fd9ad191131e7)
+        ;
+
+        
+    
+    
+            var marker_9e1ad76f46aa4bb2952a8b1e1601795e = L.marker(
+                [37.484278, 126.929692],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_eab67a55fae04656bfdf39814187159c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_532f9691377441739cdcc608949031c1 = $(`<div id="html_532f9691377441739cdcc608949031c1" style="width: 100.0%; height: 100.0%;">Sillim station</div>`)[0];
+            popup_eab67a55fae04656bfdf39814187159c.setContent(html_532f9691377441739cdcc608949031c1);
+        
+
+        marker_9e1ad76f46aa4bb2952a8b1e1601795e.bindPopup(popup_eab67a55fae04656bfdf39814187159c)
+        ;
+
+        
+    
+    
+            var marker_05d35b3a90e74c11a646488f1742521b = L.marker(
+                [37.485381, 126.982139],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_b35bc14002854519817ee928c1365bfd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5a66c3b9099d4b35b3474512c3992483 = $(`<div id="html_5a66c3b9099d4b35b3474512c3992483" style="width: 100.0%; height: 100.0%;">Isu station</div>`)[0];
+            popup_b35bc14002854519817ee928c1365bfd.setContent(html_5a66c3b9099d4b35b3474512c3992483);
+        
+
+        marker_05d35b3a90e74c11a646488f1742521b.bindPopup(popup_b35bc14002854519817ee928c1365bfd)
+        ;
+
+        
+    
+    
+            var marker_6e763f9975e444db8bc023b7a53bb1b6 = L.marker(
+                [37.4951098, 126.9544046],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_93c0fb82550c49998972c86e9cc97761 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_479618f15ce842869d5e4352883e45f7 = $(`<div id="html_479618f15ce842869d5e4352883e45f7" style="width: 100.0%; height: 100.0%;">Soongsil Univ. Station station</div>`)[0];
+            popup_93c0fb82550c49998972c86e9cc97761.setContent(html_479618f15ce842869d5e4352883e45f7);
+        
+
+        marker_6e763f9975e444db8bc023b7a53bb1b6.bindPopup(popup_93c0fb82550c49998972c86e9cc97761)
+        ;
+
+        
+    
+    
+            var marker_823faa7c8fa64fd9aaca64dfa72bb10a = L.marker(
+                [37.48665099999999, 126.982164],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_e6e258dde77c46c1aa7ce2ee7cfbd6f7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8702671a24fa4d858382cfcb5cb1caf7 = $(`<div id="html_8702671a24fa4d858382cfcb5cb1caf7" style="width: 100.0%; height: 100.0%;">Chongshin Univ. (Isu) station</div>`)[0];
+            popup_e6e258dde77c46c1aa7ce2ee7cfbd6f7.setContent(html_8702671a24fa4d858382cfcb5cb1caf7);
+        
+
+        marker_823faa7c8fa64fd9aaca64dfa72bb10a.bindPopup(popup_e6e258dde77c46c1aa7ce2ee7cfbd6f7)
+        ;
+
+        
+    
+    
+            var marker_6aebb751dd8942d29f08effb02180e22 = L.marker(
+                [37.451854, 127.002164],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_7103c90ccfb84541943a9220a708245f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c56c5840770f4907bc7532c26a32a7af = $(`<div id="html_c56c5840770f4907bc7532c26a32a7af" style="width: 100.0%; height: 100.0%;">Seonbawi station</div>`)[0];
+            popup_7103c90ccfb84541943a9220a708245f.setContent(html_c56c5840770f4907bc7532c26a32a7af);
+        
+
+        marker_6aebb751dd8942d29f08effb02180e22.bindPopup(popup_7103c90ccfb84541943a9220a708245f)
+        ;
+
+        
+    
+    
+            var marker_87c8dd984ac1438683141e339ad03a96 = L.marker(
+                [37.481512, 126.997638],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_c50e605fc7264667a042bc0d9f4100cb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_60ee198e044e4933a6c633325c36b786 = $(`<div id="html_60ee198e044e4933a6c633325c36b786" style="width: 100.0%; height: 100.0%;">Bangbae station</div>`)[0];
+            popup_c50e605fc7264667a042bc0d9f4100cb.setContent(html_60ee198e044e4933a6c633325c36b786);
+        
+
+        marker_87c8dd984ac1438683141e339ad03a96.bindPopup(popup_c50e605fc7264667a042bc0d9f4100cb)
+        ;
+
+        
+    
+    
+            var marker_b927525f1a02450fac88500308353eec = L.marker(
+                [37.48757630000001, 126.99365],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_02aae5c46f8649fea29b29f876b949e6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3444ab95e65e4dbc82f1375302c3c5bf = $(`<div id="html_3444ab95e65e4dbc82f1375302c3c5bf" style="width: 100.0%; height: 100.0%;">Naebang station</div>`)[0];
+            popup_02aae5c46f8649fea29b29f876b949e6.setContent(html_3444ab95e65e4dbc82f1375302c3c5bf);
+        
+
+        marker_b927525f1a02450fac88500308353eec.bindPopup(popup_02aae5c46f8649fea29b29f876b949e6)
+        ;
+
+        
+    
+    
+            var marker_d862dc4fc2a04b508e31134f245e35c3 = L.marker(
+                [37.487519, 126.913282],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_854ec846b69d4f2096bb60f4e0e9bffb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2013fc864b5a496ab7ca5182735dfc0d = $(`<div id="html_2013fc864b5a496ab7ca5182735dfc0d" style="width: 100.0%; height: 100.0%;">Sindaebang station</div>`)[0];
+            popup_854ec846b69d4f2096bb60f4e0e9bffb.setContent(html_2013fc864b5a496ab7ca5182735dfc0d);
+        
+
+        marker_d862dc4fc2a04b508e31134f245e35c3.bindPopup(popup_854ec846b69d4f2096bb60f4e0e9bffb)
+        ;
+
+        
+    
+    
+            var marker_767b2e230b53465186ffd8a1061b8f5a = L.marker(
+                [37.503072, 126.947753],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_26918705f72d4b60bc60f3b8cfb3037b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f0cc630094fc413fa33583932c877db9 = $(`<div id="html_f0cc630094fc413fa33583932c877db9" style="width: 100.0%; height: 100.0%;">Sangdo station</div>`)[0];
+            popup_26918705f72d4b60bc60f3b8cfb3037b.setContent(html_f0cc630094fc413fa33583932c877db9);
+        
+
+        marker_767b2e230b53465186ffd8a1061b8f5a.bindPopup(popup_26918705f72d4b60bc60f3b8cfb3037b)
+        ;
+
+        
+    
+    
+            var marker_c523bc4d8f0d4534a2d9ea4cf296c326 = L.marker(
+                [37.4996185, 126.9292305],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_a2b04ae925e641f392665c36a9bde415 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4dbfc6c185714213963a888f8bc5448a = $(`<div id="html_4dbfc6c185714213963a888f8bc5448a" style="width: 100.0%; height: 100.0%;">Sindaebang Samgeori station</div>`)[0];
+            popup_a2b04ae925e641f392665c36a9bde415.setContent(html_4dbfc6c185714213963a888f8bc5448a);
+        
+
+        marker_c523bc4d8f0d4534a2d9ea4cf296c326.bindPopup(popup_a2b04ae925e641f392665c36a9bde415)
+        ;
+
+        
+    
+    
+            var marker_94f1eb75fc37499081c328363a739394 = L.marker(
+                [37.43320500000001, 126.996404],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_1acb78af8e2e45e0b6d7a8ba8798aaef = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7c4c513d969f485a862e5af0fdadae26 = $(`<div id="html_7c4c513d969f485a862e5af0fdadae26" style="width: 100.0%; height: 100.0%;">Gwacheon Station station</div>`)[0];
+            popup_1acb78af8e2e45e0b6d7a8ba8798aaef.setContent(html_7c4c513d969f485a862e5af0fdadae26);
+        
+
+        marker_94f1eb75fc37499081c328363a739394.bindPopup(popup_1acb78af8e2e45e0b6d7a8ba8798aaef)
+        ;
+
+        
+    
+    
+            var marker_aaa62abbf2ab4c00a9432adc14be0f46 = L.marker(
+                [37.50490500000001, 126.939191],
+                {}
+            ).addTo(map_34d7c48245734654a52e293cbe6aa814);
+        
+    
+        var popup_c5daa6ab103044c9be3a4228db08452e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f1c0abe9c0bf4bb09dea064d0849c9c6 = $(`<div id="html_f1c0abe9c0bf4bb09dea064d0849c9c6" style="width: 100.0%; height: 100.0%;">Jangseungbaegi station</div>`)[0];
+            popup_c5daa6ab103044c9be3a4228db08452e.setContent(html_f1c0abe9c0bf4bb09dea064d0849c9c6);
+        
+
+        marker_aaa62abbf2ab4c00a9432adc14be0f46.bindPopup(popup_c5daa6ab103044c9be3a4228db08452e)
+        ;
+
+        
+    
+</script>

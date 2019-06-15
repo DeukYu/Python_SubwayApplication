@@ -41,9 +41,9 @@ class Rect():
 
 
 def getnum(string):
-    tempstr =''
-    for i in range(string.__len__()):
-        if string[i] in ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]:
-            tempstr += string[i]
+   tempstr =''
+   for i in range(string.__len__()):
+       if string[i] in ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]:
+           tempstr += string[i]
 
-    return int(tempstr)
+   return int(tempstr)

@@ -10,7 +10,6 @@ def FindStation(origin, dest):
     base_url = 'https://maps.googleapis.com/maps/api/directions/json?origin='+ originUrl +'&destination='+ destUrl +'&mode=transit&transit_mode=subway&key=AIzaSyCg0fDlbw8XRm5A29-ETy_Ic2O7fHppdIo'
     with urllib.request.urlopen(base_url) as url:
         data = json.loads(url.read().decode('utf-8'))
-        #pprint.pprint(data)
         return data
 
 def _FindRoute(start, end):
@@ -85,10 +84,6 @@ def _FindRoute(start, end):
     returnData['Route'] = Route
     returnData['Size'] = int(returnData['Route'].__len__())
 
-
-    #print("returnData==========")
-    #pprint.pprint(returnData)
-
     return returnData
 
 def FindNearStation(addr):
@@ -99,7 +94,6 @@ def FindNearStation(addr):
     base_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + y + "," + x +"&radius=5000&type=subway_station&key=AIzaSyCg0fDlbw8XRm5A29-ETy_Ic2O7fHppdIo"
     with urllib.request.urlopen(base_url) as url:
         data = json.loads(url.read().decode('utf-8'))
-        #pprint.pprint(data)
 
     returndata = []
     for i in range(data['results'].__len__()):
@@ -126,18 +120,4 @@ def FindNearStation(addr):
                                                            (data['results'][i]['geometry']['location']['lat'],
                                                             data['results'][i]['geometry']['location']['lng'])) / 6.5 * 60)
                                    ])
-    pprint.pprint(returndata)
     return returndata
-
-def temp(start, end):
-    originPos = FindAddress2(start + "역")
-    destPos = FindAddress2(end + "역")
-    originUrl = str(originPos[0]) + ',' + str(originPos[1])
-    destUrl = str(destPos[0]) + ',' + str(destPos[1])
-    base_url = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + originUrl + '&destination=' + destUrl + '&mode=transit&transit_mode=subway&key=AIzaSyCg0fDlbw8XRm5A29-ETy_Ic2O7fHppdIo'
-    with urllib.request.urlopen(base_url) as url:
-        data = json.loads(url.read().decode('utf-8'))
-        pprint.pprint(data)
-        return data
-
-temp("정왕", "숭실대입구")
